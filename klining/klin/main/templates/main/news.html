@@ -1,0 +1,145 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Новости{% endblock %}
+
+{% block content %}
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var showDetailsButtons = document.querySelectorAll('.show-details-button');
+
+    showDetailsButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var newsTitle = this.dataset.title;
+            var newsDescription = this.dataset.description;
+
+            var modal = document.createElement('div');
+            modal.className = 'custom-alert';
+
+            var content = document.createElement('div');
+            content.className = 'modal-content';
+            content.innerHTML = '<h2>' + newsTitle + '</h2><p>' + newsDescription + '</p>';
+
+            var closeButton = document.createElement('button');
+            closeButton.textContent = 'Закрыть';
+            closeButton.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            modal.appendChild(content);
+            modal.appendChild(closeButton);
+
+            document.body.appendChild(modal);
+
+        });
+    });
+});
+    </script>
+<style>
+ .custom-alert {
+     position: fixed;
+    top: 5%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    color: #101316;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: zoomIn 0.5s ease forwards;
+    width: 900px;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.custom-alert button {
+    background-color: #f69218;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 45%;
+    margin-top: 10px;
+}
+
+.custom-alert button:hover {
+    background-color: #de843a;
+}
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+</style>
+<style>
+    .alert-warning {
+    background-color: rgb(255 255 255 / 51%);
+        width: calc(25% - 20px);
+        margin-bottom: 5px;
+        float: left;
+        margin-right: 20px;
+        animation: zoomIn 0.9s ease forwards;
+
+}
+
+.container {
+    border: 2px solid #fff;
+    margin-top:100px;
+}
+    .container::after {
+        content: "";
+        display: table;
+        clear: both;
+
+}
+    .more-details-button {
+    background-color: #eb973d; /* Цвет кнопки */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* Делает кнопку блочным элементом */
+    margin: 10px auto 0; /* Верхний отступ 10px, автоматическое выравнивание по горизонтали и нижний отступ 0 */
+    width: fit-content; /* Ширина кнопки соответствует ее содержимому */
+}
+
+.more-details-button:hover {
+    background-color: #de843a; /* Цвет кнопки при наведении */
+}
+body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: url('{% static 'main/img/pol.jpg' %}') no-repeat  center fixed;
+        background-size: cover;
+}
+</style>
+    <body class="with-background">
+        <div class="features">
+            <h1></h1>
+            {% if newss %}
+                {% for el in newss %}
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.new }}</p>
+                {% if el.image %}
+            <img src="{{ el.image.url }}" alt="{{ el.title }}">
+        {% endif %}
+                    <button class="show-details-button more-details-button" data-title="{{ el.title }}" data-description="{{ el.news }}">Подробнее</button>
+                </div>
+            {% endfor %}
+                {% else %}
+    <p>У вас нет записей!</p>
+    {% endif %}
+    {# Комментарий #}
+        </div>
+    </body>
+{% endblock %}

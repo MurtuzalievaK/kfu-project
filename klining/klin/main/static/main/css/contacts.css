@@ -1,0 +1,40 @@
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+    }
+
+.p-md-5{
+    margin-top: 70px;
+    background-color: #eb973d
+}
+
+.custom-bg {
+    background-color: #f09c2e;
+}
+
+.bg-body-tertiary {
+    margin-top: 15px;
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important;
+}
+
+    /* Стили для выравнивания по центру */
+.centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 35vh; /* Делаем контейнер по высоте равным высоте видимой области */
+
+}
+
+    /* Стили для таблицы */
+.centered-table {
+        margin-top: 3px; /* Дополнительный отступ сверху для таблицы */
+}
+.centered-text {
+        text-align: center; /* Выравниваем текст по центру */
+        margin-top: 50px; /* Отступ сверху для центрирования по вертикали */
+
+}
+

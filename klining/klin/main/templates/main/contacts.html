@@ -1,0 +1,166 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+О нас
+{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'main/css/contacts.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis custom-bg">
+    <div class="col-lg-6 px-0">
+      <h1 class="display-4 fst-italic">Клининговая компания</h1>
+      <p class="lead my-3">Мы специализируемся на предоставлении профессиональных услуг по уборке и поддержанию чистоты в жилых, коммерческих и промышленных помещениях.</p>
+      <p class="lead mb-0"><a href="{% url 'about' %}" class="text-body-emphasis fw-bold">Заказать уборку</a></p>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">Уборка</strong>
+          <h3 class="mb-0">Удобно и быстро</h3>
+          <div class="mb-1 text-body-secondary">Nov 12</div>
+          <p class="card-text mb-auto">Процесс очистки и поддержания чистоты в различных помещениях, включая дома, офисы, магазины, общественные здания и другие пространства.</p>
+          <a href="" class="icon-link gap-1 icon-link-hover stretched-link">
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#3d3b34"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success-emphasis">Химчистка</strong>
+          <h3 class="mb-0">Безопасно</h3>
+          <div class="mb-1 text-body-secondary">Nov 11</div>
+          <p class="mb-auto">Процесс очистки тканей и текстиля с использованием специальных химических веществ, которые помогают удалить пятна, грязь, запахи и другие загрязнения. </p>
+          <a href="" class="icon-link gap-1 icon-link-hover stretched-link">
+
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#3d3b34"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Наша компания
+      </h3>
+
+      <article class="blog-post">
+        <h2 class="display-5 link-body-emphasis mb-1">Дата создания</h2>
+        <p class="blog-post-meta">January 1, 2021 by <a href="#"></a>Ksenia Murtuzalieva</p>
+
+        <p>Создание клининговой компании - это многоэтапный процесс, который требует хорошо продуманного бизнес-плана и стратегии.</p>
+        <hr>
+        <p>Команда опытных профессионалов, преданная чистоте и порядку. Мы гордимся нашими высококвалифицированными сотрудниками, которые обеспечивают высокий стандарт уборки в каждом помещении. Наш персонал прошел тщательный отбор и обучение, чтобы гарантировать эффективность и качество наших услуг. Мы используем только экологически чистые средства и передовое оборудование, чтобы обеспечить безопасность и заботу о вашем пространстве. Наша миссия - сделать вашу жизнь проще, обеспечивая чистоту и порядок, на которые вы можете полагаться.</p>
+      </article>
+
+      <article class="blog-post">
+          <div class="centered-text">
+        <h2 class="display-5 link-body-emphasis mb-1">Как оказывается уборка?</h2>
+          </div>
+<div style="display: flex; justify-content: center;">
+  <img
+    alt="генеральная уборка"
+    src="{% static 'main/img/л.jpg' %}"
+    style="border-radius: 20px; max-width: 100%; height: auto; display: block;"
+  >
+</div>
+<div class="centered-content">
+        <h3>Генеральная уборка</h3>
+        <p></p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Работа</th>
+              <th>Исполнители</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Однокомнатная - до 50 м²</td>
+              <td>6-7 часов</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Двухкомнатная - до 70 м²</td>
+              <td>6-7 часов</td>
+              <td>2-3</td>
+            </tr>
+            <tr>
+              <td>Трехкомнатная - до 90 м²</td>
+              <td>7-8 часов</td>
+              <td>3</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+      </article>
+
+
+    <img src="{% static 'main/img/хим.PNG' %}" alt="Описание изображения" style="border-radius: 20px; max-width: 140%; height: auto; display: block">
+
+
+    </div>
+<div class="album py-5 bg-body-tertiary">
+    <div class="container text-center">
+<h3>Наши специалисты</h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'main/img/woman4.jpg' %}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Dua Image">
+            <div class="card-body">
+              <p class="card-text">Елизавета Калтыгина. Имеет опыт более 3-х лет. Не оставит ни одного пятна после себя. Постоянно проходит обучение и выезжает на конкурсы по быстрой уборки.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'main/img/woman8.jpg' %}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Dua Image">
+            <div class="card-body">
+              <p class="card-text">Мария Романова. Опыт более 5 лет, берется за работу любой сложности. Время уборки составляет от 1,5 часа (в зависимости от метража помещений)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="{% static 'main/img/woman7.jpg' %}" class="bd-placeholder-img card-img-top" width="100%" height="225" alt="Dua Image">
+            <div class="card-body">
+              <p class="card-text">Евгения Григорьева. Имеет опыт около года, в нашу компанию пришла не имея никакого опыта, но за короткое время достигла высоких результатов.</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+<footer class="py-5 text-center text-body-secondary bg-body-tertiary container-fluid">
+  <p>Клининговая компания <a href="{% url 'home' %}">My Purity</a> by <a href="https://mail.yandex.ru/?uid=1174091346#tabs/relevant">@ksenisergeewa@yandex.ru</a>.</p>
+  <p class="mb-0">
+    <a href="#">Вверх</a>
+  </p>
+</footer>
+
+<style>
+
+body, html {
+
+</style>
+
+
+
+{% endblock %}
+

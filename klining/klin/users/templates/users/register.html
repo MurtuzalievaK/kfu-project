@@ -1,0 +1,71 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<f1></f1>
+<link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+<style>
+    f1 {
+    font-family: 'Barlow', sans-serif; /* Замените 'Roboto' на название вашего шрифта */
+    font-size: 2.5rem; /* Размер шрифта */
+    color: #eb973d; /* Цвет текста */
+    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 1rem; /* Отступ снизу */
+    /* Добавьте другие стили, если нужно */
+}
+    p {
+        margin-left: 550px;
+        margin-top: 40px;
+    }
+    input {
+        float: right;
+        text-align: center;
+    }
+button {
+        width: 85%;
+        background-color: #eb973d;
+        color: white;
+        border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.5) url('{% static 'main/img/translucent-image (3).png' %}') no-repeat  center fixed;
+        background-size: cover;
+}
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative; /* Добавлено для позиционирования */
+    }
+    button {
+        width: 100%;
+        background-color: #f77d09;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    </style>
+<form method="post" style="width:900px; height: 500px;opacity: 95%; /* Заданная ширина формы */
+        padding: 20px;
+        background-color: #FFF; /* Непрозрачный белый фон для формы */
+        border-radius: 15px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        z-index: 2; /* Убедитесь, что форма поверх фонового изображения */
+        position: relative;">
+    {% csrf_token %}
+    <div class="img" style="width:390px;display:flex;justify-content: center;float: left;margin-left: 55px;margin-top: 30px">
+        <img style="width: 85%" src="{% static 'main/img/regis.png' %}" alt="Eror">
+    </div>
+    <input type="hidden" name="next" value="{{ next }}" />
+    {{ form.as_p }}
+   <button style=" margin-top:5px;width: 22%;float: right;height: 40px" type="submit">Регистрация</button>
+</form>
+
+{% endblock %}

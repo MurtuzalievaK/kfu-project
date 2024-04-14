@@ -1,0 +1,263 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'main/img/ybor.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Почему заказ клининга лучше?</h5>
+        <p>Уборка профессионалами обеспечит быстрый и качественный результат. </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/img/ybor2.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Можно ли доверять клинеру?</h5>
+        <p>
+Конечно, мы тщательно отбираем и обучаем наших исполнителей, также компания несет 100% материальную ответственность. </p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/img/ybor3.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Сколько по времени занимает клининг?</h5>
+        <p>Зависит от выбранного вида уборки. На поддерживающую и комплексную в среднем уходит от 3 до 4 часов, на генеральную и послеремонтную обычно требуется от 6 до 8 часов.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="custom-section__content container">
+    <h4 class="custom-section__title title-30 custom-section__title--center">
+        Преимущества клинингового сервиса "My Purity"
+    </h4>
+    <div class="row">
+        <div class="col-md-6 tac mb-40">
+            <div class="mb-20 features__icon">
+                <!---->
+                <img src="{% static 'main/img/гарантии (1).png'%}" alt="Гарантии" class="features__icon-img">
+            </div>
+            <div class="title-24 mb-20">
+                Гарантии
+            </div>
+            <div class="text-p-18 features__text" style="max-width: 400px;">Компания несет 100% материальную ответственность</div>
+        </div>
+        <div class="col-md-6 tac mb-40">
+            <div class="mb-20 features__icon">
+                <!---->
+                <img src="{% static 'main/img/гарантии (1).png' %}" alt="Постоянство" class="features__icon-img">
+            </div>
+            <div class="title-24 mb-20">
+                Постоянство
+            </div>
+            <div class="text-p-18 features__text" style="max-width: 400px;">Закрепляем за вами постоянного исполнителя</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 tac mb-40">
+            <div class="mb-20 features__icon">
+                <!---->
+                <img src="{% static 'main/img/гарантии (1).png' %}" alt="Качество" class="features__icon-img">
+            </div>
+            <div class="title-24 mb-20">
+                Качество
+            </div>
+            <div class="text-p-18 features__text" style="max-width: 400px;">Мы тщательно отбираем и обучаем исполнителей в нашeм сервисе заказа уборки</div>
+        </div>
+        <div class="col-md-6 tac mb-40">
+            <div class="mb-20 features__icon">
+                <!---->
+                <img src="{% static 'main/img/гарантии (1).png' %}" alt="Удобный сервис" class="features__icon-img">
+            </div>
+            <div class="title-24 mb-20">
+                Удобный сервис
+            </div>
+            <div class="text-p-18 features__text" style="max-width: 400px;">Оплата картой, управление заказами в приложении</div>
+        </div>
+    </div>
+</div>
+<div class="custom-section__content container">
+    <h4 class="custom-section__title title-30 custom-section__title--center">Как заказать клининг?</h4>
+    <div class="how-it-work row">
+        <div class="how-it-work__item col-lg-4">
+            <div class="how-it-work__img-wrapper"><img src="{% static 'main/img/odin.png' %}" alt="Узнайте цену" class="how-it-work__img"></div>
+            <div class="how-it-work__text-wrapper tal">
+                <p class="text-p-14 text-p--bold text-p--grey mb-10">ШАГ 1</p>
+                <p class="title-24 mb-10">Узнайте цену</p>
+                <p class="text-p-16">Укажите площадь квартиры, выберите дату и время. Мгновенно узнайте точную цену услуги</p>
+            </div>
+        </div>
+        <div class="how-it-work__item col-lg-4">
+            <div class="how-it-work__img-wrapper"><img src="{% static 'main/img/dva.png' %}" alt="Дальше мы всё сделаем сами" class="how-it-work__img"></div>
+            <div class="how-it-work__text-wrapper tal">
+                <p class="text-p-14 text-p--bold text-p--grey mb-10">ШАГ 2</p>
+                <p class="title-24 mb-10">Дальше мы всё сделаем сами</p>
+                <p class="text-p-16">Мы сами подберём лучших исполнителей и отправим их к вам в нужное время. Вам остаётся открыть дверь. Вы можете покинуть квартиру на время уборки</p>
+            </div>
+        </div>
+        <div class="how-it-work__item col-lg-4">
+            <div class="how-it-work__img-wrapper"><img src="{% static 'main/img/tri.png' %}" alt="Наслаждайтесь чистотой" class="how-it-work__img"></div>
+            <div class="how-it-work__text-wrapper tal">
+                <p class="text-p-14 text-p--bold text-p--grey mb-10">ШАГ 3</p>
+                <p class="title-24 mb-10">Наслаждайтесь чистотой</p>
+                <p class="text-p-16">Исполнители сами знают, что им нужно делать — они работают по чёткому чек-листу. Если вы прикрепили карту, то все взаиморасчёты мы проведём за вас</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="aside-application rf">
+  <h3 class="title-h3">Заказать уборку</h3>
+
+  <div class="success-message" style="display: none;">
+    <h3 class="send-main-title title-h3">Спасибо! Ваше сообщение отправлено</h3>
+      <img src="{% static 'main/img/m.png' %}" alt="Image description" class="form-image">
+  </div>
+
+  <div class="error-message" style="display: none;">
+    <h3 class="send-main-title title-h3">Произошла ошибка! Повторите попытку позднее</h3>
+
+  </div>
+
+  <form class="send-order">
+    <div class="form-group">
+      <input type="text" class="form-control required" placeholder="Ваше имя *" name="name" required>
+    </div>
+    <div class="form-group">
+      <input type="tel" class="form-control tel required" placeholder="Телефон *" name="phone" required>
+    </div>
+    <div class="form-group">
+      <textarea class="form-control" placeholder="Комментарий" name="uslugamessage"></textarea>
+    </div>
+    <div class="agreement form-group">
+      <input type="checkbox" name="agreement" id="agreement4" class="required" required>
+      <label for="agreement4">
+        Я даю свое <a href="politika" target="_blank" title="Обработка персональных данных">согласие на обработку персональных данных</a>
+      </label>
+    </div>
+    <input type="submit" class="btn block min" value="Заказать">
+  </form>
+
+</div>
+<div id="successModal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <t>Спасибо за заказ</t>
+        <p>Мы свяжемся с Вами в течение 10 минут.</p>
+    </div>
+</div>
+<style>
+#successModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Убедитесь, что z-index выше, чем у других элементов */
+}
+
+.modal-content {
+    background: #eb973d;
+    padding: 49px;
+    border-radius: 131px;
+    text-align: center;
+}
+.t {
+    color: white;
+}
+.close {
+    cursor: pointer;
+    position: absolute;
+    right: 60px;
+    top: 15px;
+    font-size: 24px; /* Увеличиваем размер шрифта */
+    font-weight: bold; /* Делаем шрифт жирным */
+    color: white;
+}
+
+.alert-warning {
+    background-color: #fae1b4;
+        width: calc(25% - 20px); /* Устанавливаем ширину каждого элемента с учетом отступов */
+        margin-bottom: 20px;
+        float: left; /* Добавляем float для выстраивания в ряд */
+        margin-right: 20px; /* Добавляем правый отступ между элементами */
+}
+body, html {
+        height: 0%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: url('{% static 'main/img/translucent-image (2).png' %}') no-repeat  center fixed;
+        background-size: cover;
+}
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item img {
+    width: 100%;
+    max-width: none;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('.send-order');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Предотвращаем обычную отправку формы
+        var formData = new FormData(form);
+
+        fetch('{% url "send_order" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Показываем всплывающее окно
+                document.getElementById('successModal').style.display = 'flex';
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Закрытие модального окна
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('successModal').style.display = 'none';
+    });
+});
+</script>
+<script src="{% static 'main/js/calc.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+
+

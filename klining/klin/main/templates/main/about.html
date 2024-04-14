@@ -1,0 +1,483 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}
+Услуги
+{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <h1></h1>
+<style>
+    h1 {
+    font-family: 'Barlow', sans-serif; /* Замените 'Roboto' на название вашего шрифта */
+    font-size: 2.5rem; /* Размер шрифта */
+    color: #eb973d; /* Цвет текста */
+    text-align: center; /* Выравнивание по центру */
+    margin-bottom: 1rem; /* Отступ снизу */
+    /* Добавьте другие стили, если нужно */
+}
+
+.calculator {
+    margin: 0 auto;
+    max-width: 600px; /* Ширина калькулятора */
+    margin-top: 4rem;
+    width: 600px;
+    padding: 20px;
+    background-color: rgb(255 255 255 / 47%);
+    border: 1px solid #eb973d;
+    border-radius: 44px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+
+.calculator h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calculator .features {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calculator .features span {
+
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.calculator .slider {
+    margin-bottom: 20px;
+}
+
+.calculator .slider label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.calculator .slider input[type="range"] {
+    width: 100%;
+}
+
+.calculator .slider #spaceValue {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.calculator .services,
+.calculator .frequency {
+    margin-bottom: 20px;
+}
+
+.calculator .services label,
+.calculator .frequency label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.calculator .services select,
+.calculator .frequency select {
+    width: 100%;
+}
+
+.calculator .price {
+    margin-bottom: 20px;
+}
+
+.calculator .price span {
+    display: block;
+}
+
+.calculator #priceValue {
+    text-align: center;
+    font-weight: bold;
+}
+
+.calculator #orderButton {
+    width: 100%;
+    padding: 10px;
+    background-color: #eb973d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calculator #orderButton:hover {
+    background-color: #d9a711;
+}
+body, html {
+        margin: 0;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.5) url('{% static 'main/img/translucent-image (4).png' %}') no-repeat  center fixed;
+        background-size: cover;
+}
+</style>
+<div id="successModal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Спасибо за заказ</p>
+        <p>Мы свяжемся с Вами в течение 10 минут.</p>
+    </div>
+</div>
+<div class="calculator">
+    <h2>Чистота без забот</h2>
+    <div class="features">
+        <span>Гарантия</span>
+        <span>Качество</span>
+        <span>Безопасность</span>
+    </div>
+    <div class="slider">
+        <label for="space">Площадь квартиры</label>
+        <input type="range" id="space" min="40" max="90" step="10" value="40">
+        <span id="spaceValue">40 м²</span>
+    </div>
+    <div class="services">
+        <label for="serviceType">Услуги</label>
+        <select id="serviceType">
+            <option value="regular">Поддерживающая уборка</option>
+            <option value="regular">Уборка после ремонта</option>
+            <option value="regular">Генеральная уборка</option>
+            <option value="regular">Химчистка мягкой мебели и ковролина</option>
+            <option value="regular">Уборка после пожара</option>
+            <option value="regular">Уборка после пожара</option>
+            <!-- Другие опции услуг -->
+        </select>
+    </div>
+    <div class="frequency">
+        <label for="cleaningFrequency">Регулярность</label>
+        <select id="cleaningFrequency">
+            <option value="weekly">Разовая уборка</option>
+            <option value="weekly">Раз в неделю -25%</option>
+            <!-- Другие опции регулярности -->
+        </select>
+    </div>
+    <div class="price">
+        <span>Цена</span>
+        <span id="priceValue">от 2 490 Р</span>
+    </div>
+    <button id="orderButton">Заказать</button>
+</div>
+<div id="orderModal" class="modal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Заказать уборку</h2>
+            </div>
+            <div class="modal-body">
+                <form class="orderForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control required" placeholder="Ваше имя *" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control required" placeholder="Телефон *" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Комментарий" name="comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="agreement" id="agreement" class="required" required>
+                        <label for="agreement">Я даю свое согласие на обработку персональных данных </label>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn block" value="Отправить">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="thankYouModal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" style="cursor: pointer;">&times;</span>
+                <h2>Спасибо за заказ. Мы свяжемся с Вами в течение 10 минут.</h2>
+            </div>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    #thankYouModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Убедитесь, что z-index выше, чем у других элементов */
+}
+.h2, .modal-header h2 {
+    text-align: center; /* Выравнивание заголовка по центру */
+    color: white;
+}
+
+.modal {
+    display: none; /* Изначально окно не отображается */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Полупрозрачный черный фон */
+}
+.modal-content1 {
+    background: #eb973d;
+    padding: 49px;
+    border-radius: 131px;
+    text-align: center;
+}
+.modal-dialog {
+    margin: 15% auto; /* Автоматические отступы слева и справа для центрирования */
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center; /* Центрирование содержимого шапки модального окна */
+    align-items: center;
+}
+
+.close {
+    color: white;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px; /* Позиционирование крестика справа */
+    top: 0;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для кнопки "Отправить" */
+.btn.block {
+    width: 100%; /* Ширина кнопки на весь контейнер */
+    background-color: #eb973d; /* Оранжевый цвет фона */
+    color: white; /* Белый цвет текста */
+    padding: 10px; /* Отступы внутри кнопки */
+    border: none;
+    border-radius: 5px; /* Скругление углов */
+    cursor: pointer;
+}
+
+.btn.block:hover {
+    background-color: #d9a711; /* Цвет фона кнопки при наведении */
+}
+.features span {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+ .card-margin {
+    margin-top: 8px; /* Или любое другое значение, которое вам подходит */
+}
+</style>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем модальное окно
+    var modal = document.getElementById("orderModal");
+    // Получаем кнопку, которая открывает модальное окно
+    var btn = document.getElementById("orderButton");
+    // Получаем элемент <span>, который закрывает модальное окно
+    var span = document.querySelector(".close"); // Используем querySelector для надежности
+
+    // Когда пользователь нажимает на кнопку, откройте модальное окно
+    btn.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    // Когда пользователь нажимает на <span> (x), закройте модальное окно
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // Когда пользователь нажимает в любом месте за пределами модального окна, закройте его
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Получаем элемент модального окна и кнопку закрытия
+    var modal = document.getElementById('thankYouModal');
+    var closeButton = modal.querySelector('.modal-header .close');
+
+    // Функция для закрытия модального окна
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // Добавляем событие клика к кнопке закрытия
+    closeButton.addEventListener('click', closeModal);
+
+    // Опционально: закрытие модального окна при клике вне его контента
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var form = document.querySelector('.orderForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Предотвращаем обычную отправку формы
+        var formData = new FormData(form);
+
+        fetch('{% url "send_order" %}', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Показываем всплывающее окно
+                document.getElementById('thankYouModal').style.display = 'flex';
+            }
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Закрытие модального окна
+    document.querySelector('.close').addEventListener('click', function() {
+        document.getElementById('thankYouModal').style.display = 'none';
+    });
+});
+</script>
+<div class="container mt-4">
+    <div class="row">
+        <!-- Карточка услуги 1 -->
+        <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/yb.jpg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Поддерживающая уборка</h5>
+                    <p class="card-text">В перечень наших услуг также входит комплексная уборка жилых помещений. </p>
+                    <div class="card-footer">
+                        <span class="price"> от 1500 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Карточка услуги 2 -->
+        <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/ty.jpg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Генеральная уборка</h5>
+                    <p class="card-text">Мы оказываем услуги по генеральной уборке жилых помещений</p>
+                    <div class="card-footer">
+                        <span class="price"> от 1900 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Карточка услуги 3 -->
+        <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/post-construction-cleaning-london.jpg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Уборка после ремонта</h5>
+                    <p class="card-text">Мы оказываем услуги по уборке после ремонта жилых помещений.</p>
+                    <div class="card-footer">
+                        <span class="price"> от 5990 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/qwwq.jpg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Химчистка мягкой мебели и ковролина</h5>
+                    <p class="card-text">Беремся за химчистку любой сложности! </p>
+                    <div class="card-footer">
+                        <span class="price"> от 2000 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+          <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/uborka-pozhara-1.jpeg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Уборка после пожара</h5>
+                    <p class="card-text">Для эффективной уборки помещения после возгорания стоит прибегнуть к нашим услугам.</p>
+                    <div class="card-footer">
+                        <span class="price"> от 3500 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+          <div class="col-md-4 card-margin">
+            <div class="card">
+                <img class="card-img-top" src="{% static 'main/img/dez.jpeg' %}" alt="Уборка после ремонта">
+                <div class="card-body">
+                    <h5 class="card-title">Дезинфекция</h5>
+                    <p class="card-text">Дезинфекция помещений любой сложности. Уничтожим и истребим вредоносных микробов.</p>
+                    <div class="card-footer">
+                        <span class="price"> от 2490 ₽</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block custom_styles %}
+<style>
+    .card {
+        margin-bottom: 1rem;
+    }
+    .card-img-top {
+        width: 100%;
+        height: 15vw; /* Или другая высота в соответствии с вашим дизайном */
+        object-fit: cover; /* Убедитесь, что изображения красиво обрезаются */
+    }
+    .price {
+        font-weight: bold;
+    }
+    .a.btn btn-primary float-right {
+        color: white;
+        background-color: #d98943;
+    }
+
+</style>
+<script src="{% static 'main/js/calc.js' %}"></script>
+{% endblock %}
+

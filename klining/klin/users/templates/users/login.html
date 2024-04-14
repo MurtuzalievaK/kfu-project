@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1></h1>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.5) url('{% static 'main/img/translucent-image (3).png' %}') no-repeat  center fixed;
+        background-size: cover;
+
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative; /* Добавлено для позиционирования */
+    }
+    .form-container {
+        width: 760px; /* Заданная ширина формы */
+        padding: 20px;
+        background-color: #FFF; /* Непрозрачный белый фон для формы */
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 2; /* Убедитесь, что форма поверх фонового изображения */
+        opacity: 95%;
+    }
+    h1 {
+        font-family: 'Barlow', sans-serif;
+        font-size: 2.5rem;
+        color: #eb973d;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    button {
+        width: 100%;
+        background-color: #eb973d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<div class="container" >
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit">Войти</button></p>
+        </form>
+    </div>
+</div>
+{% endblock %}
